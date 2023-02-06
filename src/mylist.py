@@ -129,5 +129,35 @@ class MyList:
 
 
 class ArrayList(MyList):
+    
+    def __init__(self, size: int, value=None) -> None:
+        self.red_array = array('i',[None] * size)
+        self.blue_array =  array('i',[None] * size)
+        self.green_array = array('i',[None] * size)
+
+        for i in range(size):
+            self.red_array.__setitem__(i,value[0])
+            self.blue_array.__setitem__(i,value[1])
+            self.green_array.__setitem__(i,value[2])
+
+
+
+    def __len__(self) -> int:
+        return self.size
+
+    def __getitem__(self, i: int):
+        return self.red_array[i], self.blue_array[i], self.green_array[i]
+
+    def __setitem__(self, i: int, value) -> None:
+        self.red_array[i] = value[0]
+        self.blue_array[i] = value[1]
+        self.green_array[i] = value[2]
+
+    def get(self, i: int):
+        return self.__getitem__(i)
+
+    def set(self, i: int, value) -> None:
+        self.__setitem__(i,value)
+    pass
     pass
 
